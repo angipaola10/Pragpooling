@@ -19,13 +19,10 @@ public class UserController {
     @Autowired
     IUserService userService;
 
-    @Autowired
-    IUserMapper userMapper;
-
     @PostMapping("createUser")
     public ResponseEntity<String> createUser(@RequestBody UserDto newUserDto){
-        User user = userService.createUser(userMapper.userDtoToUser(newUserDto));
-        return new ResponseEntity<>("User " + user.getName() + " created successfully!", HttpStatus.CREATED);
+        userService.createUser(newUserDto);
+        return new ResponseEntity<>("User " + newUserDto.getName() + " created successfully!", HttpStatus.CREATED);
     }
 
 }

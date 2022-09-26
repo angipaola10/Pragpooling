@@ -19,7 +19,7 @@ public class UserRepository implements IUserPersistence {
     IUserRepository userRepository;
 
     @Override
-    public User createUser(User user) {
-        return (User) userRepository.save(user);
+    public void createUser(User user) {
+        userRepository.save(user);
     }
 }

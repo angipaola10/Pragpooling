@@ -14,7 +14,6 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(value = {ConstraintViolationException.class})
     public ResponseEntity<Object> handleApiRequestException(ConstraintViolationException e){
-
         String message = e.getConstraintViolations()
                 .stream()
                 .map(constraintViolation -> constraintViolation.getMessageTemplate())
@@ -24,6 +23,8 @@ public class ApiExceptionHandler {
                 message,
                 HttpStatus.NOT_ACCEPTABLE,
                 ZonedDateTime.now());
+
         return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
     }
+
 }

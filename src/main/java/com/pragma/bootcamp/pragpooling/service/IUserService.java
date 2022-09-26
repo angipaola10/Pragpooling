@@ -1,7 +1,9 @@
 package com.pragma.bootcamp.pragpooling.service;
 
+import com.pragma.bootcamp.pragpooling.dto.UserDto;
 import com.pragma.bootcamp.pragpooling.model.User;
 
 public interface IUserService {
-    User createUser(User user);
+    void createUser(UserDto userDto);
+
 }
